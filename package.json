@@ -1,0 +1,42 @@
+{
+  "name": "friday-ai",
+  "version": "1.0.0",
+  "description": "F.R.I.D.A.Y. AI Personal Desktop Assistant for Windows 11",
+  "main": "dist-electron/main/index.js",
+  "author": "F.R.I.D.A.Y. AI",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build:frontend": "vite build",
+    "build:electron": "tsc -p desktop/tsconfig.json",
+    "build": "npm run build:frontend && npm run build:electron",
+    "start": "electron .",
+    "dev:electron": "concurrently -k \"vite\" \"wait-on http://127.0.0.1:5173 && electron .\"",
+    "dist": "npm run build && electron-builder",
+    "backend:dev": "backend\\.venv\\Scripts\\python.exe -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8765 --reload",
+    "backend:test": "backend\\.venv\\Scripts\\pytest.exe backend/tests"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "framer-motion": "^12.4.7",
+    "lucide-react": "^0.475.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^34.2.0",
+    "electron-builder": "^25.1.8",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "wait-on": "^8.0.2"
+  }
+}

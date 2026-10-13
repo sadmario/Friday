@@ -1,0 +1,46 @@
+{
+  "appId": "com.friday.ai",
+  "productName": "F.R.I.D.A.Y. AI",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist-electron/**/*",
+    "frontend/dist/**/*",
+    "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "assets",
+      "to": "assets"
+    },
+    {
+      "from": "backend",
+      "to": "backend"
+    }
+  ],
+  "win": {
+    "icon": "assets/icon.png",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+
+    "signAndEditExecutable": false,
+    "signtoolOptions": {
+      "certificateFile": null
+    }
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "F.R.I.D.A.Y. AI",
+    "uninstallDisplayName": "F.R.I.D.A.Y. AI Assistant",
+    "deleteAppDataOnUninstall": false,
+    "differentialPackage": false
+  }
+}
